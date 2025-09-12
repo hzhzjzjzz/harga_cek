@@ -83,6 +83,39 @@
         .info-stok .icon {
             font-size: 1.3em;
         }
+        .area-link-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 16px;
+            margin-bottom: 0;
+        }
+        .area-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(90deg, #00bfff 50%, #25d366 100%);
+            color: #fff;
+            padding: 10px 24px;
+            font-size: 1.03em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,191,255,0.15);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .area-link:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(0,191,255,0.18);
+            background: linear-gradient(90deg, #25d366 60%, #00bfff 100%);
+            color: #fff;
+        }
+        .area-link .area-ico {
+            font-size: 1.18em;
+            vertical-align: -2px;
+        }
         .product-list-container {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -180,6 +213,8 @@
             .product-item { flex-direction: column; align-items: flex-start; gap: 2px; }
             .info-stok { font-size: 0.97em; padding: 11px 7px; flex-direction: column; gap: 4px; }
             .footer-cta { margin-top: 32px; }
+            .area-link-box { margin-top: 10px; }
+            .area-link { padding: 9px 14px; font-size: 0.97em; }
         }
     </style>
 </head>
@@ -193,6 +228,12 @@
                 <span>Informasi stok update & pengumuman:</span>
                 <a href="https://whatsapp.com/channel/0029Vb9rti60rGiNbe3gpm28" target="_blank">
                     Channel WhatsApp GFR Store
+                </a>
+            </div>
+            <div class="area-link-box">
+                <a href="https://cekareaxl.vercel.app/" class="area-link" target="_blank">
+                    <span class="area-ico">🌐</span>
+                    Cek Area XL Anda di sini
                 </a>
             </div>
         </header>
