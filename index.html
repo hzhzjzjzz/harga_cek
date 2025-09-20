@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Harga Produk - GFR Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         :root {
@@ -12,42 +15,157 @@
             --bg-color: #0a0a0a;
             --bg-secondary: #1a1a1a;
             --text-color: #ffffff;
-            --text-secondary: #888;
+            --text-secondary: #bbb;
             --border-color: #333;
             --highlight-color: #ffd700;
             --gradient-1: #0f2027;
             --gradient-2: #2c5364;
-            --card-bg: rgba(255,255,255,0.07);
+            --gradient-glow: rgba(0,191,255,0.45);
+            --card-bg: rgba(255,255,255,0.10);
+            --neon-shadow: 0 0 12px #00bfff, 0 0 24px #25d36688;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--gradient-1), var(--bg-color), var(--gradient-2));
+            background: linear-gradient(120deg, var(--gradient-1), var(--bg-color) 40%, var(--gradient-2));
             color: var(--text-color);
             min-height: 100vh;
+            background-attachment: fixed;
+            position: relative;
         }
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 28px 8px 18px 8px;
         }
+        /* --- Contact Top Bar --- */
+        .contact-note-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .contact-top {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #25d366 60%, #00bfff 100%);
+            color: #fff;
+            padding: 15px 26px;
+            font-size: 1.08em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 16px;
+            box-shadow: var(--neon-shadow);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s, filter 0.2s;
+            filter: brightness(1.05);
+            animation: pulse 2.6s infinite;
+        }
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.04) rotate(-2deg);
+            box-shadow: 0 7px 36px #25d36699, 0 0 24px #00bfff88;
+            background: linear-gradient(90deg, #25d366 50%, #00bfff 100%);
+            color: #fff;
+            filter: brightness(1.1);
+        }
+        .contact-btn.tg {
+            background: linear-gradient(90deg, #229ED9 50%, #00bfff 100%);
+            box-shadow: 0 0 18px #229ED977, 0 0 24px #00bfff38;
+            animation-delay: 0.5s;
+        }
+        .contact-btn.tg:hover {
+            background: linear-gradient(90deg, #00bfff 60%, #229ED9 100%);
+        }
+        .contact-btn.ig {
+            background: linear-gradient(90deg, #fd5949 45%, #d6249f 80%, #285AEB 100%);
+            box-shadow: 0 0 18px #fd594977, 0 0 24px #d6249f38;
+            animation-delay: 1s;
+        }
+        .contact-btn.ig:hover {
+            background: linear-gradient(90deg, #d6249f 30%, #fd5949 70%, #285AEB 100%);
+        }
+        @keyframes pulse {
+            0% { box-shadow: var(--neon-shadow); }
+            50% { box-shadow: 0 0 30px #00bfff, 0 0 48px #25d366cc; }
+            100% { box-shadow: var(--neon-shadow); }
+        }
+        .whatsapp-link .wa-ico,
+        .contact-btn .icon {
+            font-size: 1.28em;
+            vertical-align: -1px;
+        }
+        .contact-note {
+            flex: 1 1 200px;
+            color: #ffd700;
+            font-size: 1.03em;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.18);
+            padding: 11px 22px 11px 15px;
+            border-radius: 12px;
+            border-left: 4px solid #ffd700;
+            box-shadow: 0 2px 14px #ffd70013;
+            margin-top: 3px;
+            min-width: 210px;
+            max-width: 410px;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeInGlow 1.2s;
+        }
+        .contact-note i {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+        /* --- HEADER --- */
         .header {
             text-align: center;
-            padding: 28px 0 20px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 32px 0 20px 0;
+            border-bottom: 2px solid var(--border-color);
             margin-bottom: 36px;
             position: relative;
         }
         .header h1 {
-            font-size: 2.6em;
+            font-size: 2.9em;
             color: var(--primary-color);
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             font-weight: 700;
-            margin-bottom: 8px;
-            text-shadow: 0 4px 24px rgba(0,191,255,0.15);
+            margin-bottom: 10px;
+            text-shadow: 0 4px 38px #00bfff24, 0 2px 12px #25d3662a;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            justify-content: center;
+        }
+        .header .subtitle {
+            font-size: 1.22em;
+            color: var(--highlight-color);
+            font-weight: 600;
+            margin-bottom: 9px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 22px #ffd70040;
+            display: flex;
+            gap: 7px;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInGlow 2s ease-in-out;
+        }
+        @keyframes fadeInGlow {
+            0% { opacity: 0; text-shadow: none; }
+            100% { opacity: 1; text-shadow: 0 2px 22px #ffd70040; }
         }
         .header p {
-            font-size: 1.16em;
+            font-size: 1.09em;
             color: var(--text-secondary);
             margin-bottom: 6px;
         }
@@ -56,18 +174,19 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            background: linear-gradient(90deg, #192433 0%, #2d6178 100%);
+            background: linear-gradient(90deg, #222e42 0%, #255e77 100%);
             color: var(--highlight-color);
             padding: 13px 20px;
             border-radius: 12px;
             font-size: 1.09em;
-            margin: 22px 0 0 0;
-            box-shadow: 0 8px 26px rgba(0,0,0,0.13);
+            margin: 19px 0 0 0;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.13), 0 0 14px #ffd7000a;
             font-weight: 600;
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.2s, background 0.2s;
         }
         .info-stok:hover {
-            box-shadow: 0 12px 38px rgba(0,191,255,0.13);
+            box-shadow: 0 12px 38px #00bfff22;
+            background: linear-gradient(90deg, #255e77 0%, #192433 100%);
         }
         .info-stok a {
             color: var(--accent-color);
@@ -96,33 +215,36 @@
             gap: 7px;
             background: linear-gradient(90deg, #00bfff 50%, #25d366 100%);
             color: #fff;
-            padding: 10px 24px;
-            font-size: 1.03em;
+            padding: 11px 28px;
+            font-size: 1.09em;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,191,255,0.15);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            border-radius: 13px;
+            box-shadow: 0 2px 18px #00bfff25;
             border: none;
             cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
         }
         .area-link:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 18px rgba(0,191,255,0.18);
+            transform: translateY(-2px) scale(1.05) rotate(1deg);
+            box-shadow: 0 7px 26px #25d36644, 0 0 16px #00bfff33;
             background: linear-gradient(90deg, #25d366 60%, #00bfff 100%);
             color: #fff;
         }
         .area-link .area-ico {
-            font-size: 1.18em;
+            font-size: 1.22em;
             vertical-align: -2px;
         }
+        /* --- PRODUK LIST --- */
         .product-list-container {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 28px 22px;
-            box-shadow: 0 4px 32px rgba(0,191,255,0.10);
+            border: 1.5px solid var(--primary-color);
+            border-radius: 22px;
+            padding: 33px 26px 28px 26px;
+            box-shadow: 0 4px 32px #00bfff15, 0 0 24px #25d36611;
             margin-top: 30px;
+            animation: fadeIn 1.1s;
         }
         .product-category {
             font-size: 1.45em;
@@ -130,20 +252,31 @@
             color: var(--primary-color);
             border-bottom: 2.5px solid var(--primary-color);
             padding-bottom: 7px;
-            margin: 24px 0 14px 0;
+            margin: 30px 0 18px 0;
             letter-spacing: 0.5px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .product-category i {
+            color: var(--accent-color);
+            font-size: 1.11em;
         }
         .product-item {
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 13px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.09);
-            transition: background 0.17s;
+            padding: 14px 0;
+            border-bottom: 1px dashed #ffffff13;
+            transition: background 0.18s;
+            font-size: 1.07em;
+            border-radius: 13px;
+            position: relative;
         }
         .product-item:hover {
-            background: rgba(0,191,255,0.08);
+            background: linear-gradient(90deg, #00bfff09 60%, #25d3660d 100%);
+            box-shadow: 0 1px 18px #00bfff12;
         }
         .product-item:last-child {
             border-bottom: none;
@@ -153,80 +286,53 @@
             flex-direction: column;
         }
         .product-name {
-            font-size: 1.05em;
-            font-weight: 600;
+            font-size: 1.11em;
+            font-weight: 700;
             color: #fff;
             letter-spacing: 0.2px;
+            margin-bottom: 2px;
         }
         .product-price {
-            font-size: 1.22em;
+            font-size: 1.18em;
             font-weight: 700;
             color: var(--accent-color);
-            text-shadow: 0 1px 8px rgba(37,211,102,0.13);
+            text-shadow: 0 1px 8px #25d36633, 0 0 2px #00bfff66;
+            margin-left: 7px;
         }
         .product-code {
-            font-size: 0.93em;
+            font-size: 0.96em;
             color: var(--text-secondary);
+            margin-top: 1px;
         }
-        .footer-cta {
-            text-align: center;
-            margin-top: 54px;
-        }
-        .whatsapp-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(90deg, #25d366 60%, #17a650 100%);
-            color: #fff;
-            padding: 16px 34px;
-            font-size: 1.09em;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 13px;
-            box-shadow: 0 4px 24px rgba(37,211,102,0.23);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        .whatsapp-link:hover {
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 7px 32px rgba(37, 211, 102, 0.33);
-            background: linear-gradient(90deg, #25d366 50%, #00bfff 100%);
-            color: #fff;
-        }
-        .whatsapp-link .wa-ico {
-            font-size: 1.18em;
-            vertical-align: -2px;
-        }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.2s ease forwards;
-        }
-        /* Pembayaran Section */
+        /* --- PEMBAYARAN --- */
         .pembayaran-section {
-            margin: 44px auto 0 auto;
+            margin: 48px auto 0 auto;
             padding: 26px 20px 18px 20px;
             background: var(--card-bg);
             border: 1.5px solid var(--accent-color);
-            border-radius: 16px;
-            max-width: 440px;
-            box-shadow: 0 2px 18px rgba(0,191,255,0.13);
+            border-radius: 18px;
+            max-width: 450px;
+            box-shadow: 0 2px 18px #00bfff25;
             color: #fff;
             text-align: center;
+            animation: fadeInUp 1.3s;
         }
         .pembayaran-section h2 {
             color: var(--primary-color);
-            font-size: 1.3em;
+            font-size: 1.37em;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: 0.5px;
         }
         .pembayaran-list {
-            margin-bottom: 13px;
-            font-size: 1.08em;
+            margin-bottom: 15px;
+            font-size: 1.11em;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
         .pembayaran-list span {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--accent-color);
         }
         .qris-title {
@@ -234,6 +340,7 @@
             font-size: 1.09em;
             color: var(--highlight-color);
             font-weight: 600;
+            letter-spacing: 1px;
         }
         .qris-link {
             display: inline-block;
@@ -253,49 +360,93 @@
             margin: 12px 0 0 0;
             width: 180px;
             max-width: 93vw;
-            border-radius: 9px;
+            border-radius: 11px;
             border: 1.5px solid var(--border-color);
-            box-shadow: 0 3px 16px rgba(0,191,255,0.12);
+            box-shadow: 0 3px 16px #00bfff12;
         }
         @keyframes fadeIn {
-            to { opacity: 1; }
+            0% { opacity: 0; transform: translateY(45px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(80px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 900px) {
+          .contact-note-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+          }
+          .contact-top {
+            justify-content: flex-start;
+          }
         }
         @media (max-width: 600px) {
-            .container { padding: 10px; }
-            .header h1 { font-size: 1.42em; }
-            .product-category { font-size: 1.1em; }
-            .product-list-container { padding: 15px 4px; }
-            .product-item { flex-direction: column; align-items: flex-start; gap: 2px; }
-            .info-stok { font-size: 0.97em; padding: 11px 7px; flex-direction: column; gap: 4px; }
+            .container { padding: 8px 2px 7px 2px; }
+            .header h1 { font-size: 1.45em; }
+            .header .subtitle { font-size: 1em; }
+            .product-category { font-size: 1.11em; }
+            .product-list-container { padding: 13px 2px 13px 2px; }
+            .product-item { font-size: 0.97em; padding: 10px 2px; }
             .footer-cta { margin-top: 32px; }
             .area-link-box { margin-top: 10px; }
-            .area-link { padding: 9px 14px; font-size: 0.97em; }
-            .pembayaran-section { padding: 12px 4px 13px 4px; max-width: 97vw; }
+            .area-link { padding: 8px 9px; font-size: 0.95em; }
+            .pembayaran-section { padding: 10px 3px 11px 3px; max-width: 97vw; }
             .qris-img { width: 99vw; max-width: 99vw; }
+            .contact-note { max-width: 99vw; padding: 9px 8px 9px 10px; font-size: 0.93em;}
         }
     </style>
 </head>
 <body>
     <div class="container fade-in">
+        <!-- ROW: Contact buttons + NOTE -->
+        <div class="contact-note-row">
+            <div class="contact-top">
+                <a href="http://wa.me/6289667881288?text=order" class="contact-btn" target="_blank" title="Hubungi Admin WhatsApp">
+                    <span class="icon"><i class="fab fa-whatsapp"></i></span> WhatsApp
+                </a>
+                <a href="https://t.me/FarGifar" class="contact-btn tg" target="_blank" title="Hubungi via Telegram">
+                    <span class="icon"><i class="fab fa-telegram-plane"></i></span> Telegram
+                </a>
+                <a href="https://instagram.com/muhammadalghiifarii" class="contact-btn ig" target="_blank" title="Kunjungi Instagram">
+                    <span class="icon"><i class="fab fa-instagram"></i></span> Instagram
+                </a>
+            </div>
+            <div class="contact-note">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>
+                    <b>Note:</b> WhatsApp tidak aktif = kena blokir/tidak bisa balas.<br>
+                    Silahkan hubungi ke <b>Telegram</b> atau <b>Instagram</b>.
+                </span>
+            </div>
+        </div>
         <header class="header">
-            <h1>🛒 DAFTAR HARGA PRODUK 🛒</h1>
-            <p>Harga terupdate, stok selalu dicek otomatis.</p>
+            <h1>
+                <span><i class="fa-solid fa-cash-register"></i></span>
+                DAFTAR HARGA PRODUK
+                <span><i class="fa-solid fa-store"></i></span>
+            </h1>
+            <div class="subtitle">
+                <i class="fa-solid fa-bolt"></i>
+                Harga selalu update & stok <b>otomatis</b>
+            </div>
             <div class="info-stok">
-                <span class="icon">ℹ️</span>
-                <span>Informasi stok update & pengumuman:</span>
+                <span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+                <span>Info stok & pengumuman:</span>
                 <a href="https://whatsapp.com/channel/0029Vb9rti60rGiNbe3gpm28" target="_blank">
                     👉Channel WhatsApp GFR Store
                 </a>
             </div>
             <div class="area-link-box">
                 <a href="https://cekareaxl.vercel.app/" class="area-link" target="_blank">
-                    <span class="area-ico">🌐</span>
-                    Cek Area AXIS&XL Anda di sini
+                    <span class="area-ico"><i class="fa-solid fa-globe"></i></span>
+                    Cek Area AXIS & XL Anda di sini
                 </a>
             </div>
         </header>
         <main class="product-list-container">
-            <h3 class="product-category">Paket Utama</h3>
+            <h3 class="product-category"><i class="fa-solid fa-star"></i> Paket Utama</h3>
             <ul>
                 <li class="product-item">
                     <div class="product-details">
@@ -364,12 +515,8 @@ AREA 4 = 67.5 - 69.5 GB</span>
                     <span class="product-price">Rp 93.000</span>
                 </li>
             </ul>
-            <h3 class="product-category">
-                Bekasan/harian L (25GB A4)<br>
-                Area 1 = 8GB<br>
-                Area 2 = 10GB<br>
-                Area 3 = 15GB<br>
-                Area 4 = 25GB
+            <h3 class="product-category"><i class="fa-regular fa-clock"></i> Bekasan/harian L (25GB A4)
+                <small style="font-weight:400;font-size:.8em;color:#ffd700;">Area 1=8GB | Area 2=10GB | Area 3=15GB | Area 4=25GB</small>
             </h3>
             <ul>
                 <li class="product-item"><span class="product-name">3 hari 25GB</span><span class="product-price">Rp 9.000</span></li>
@@ -382,12 +529,8 @@ AREA 4 = 67.5 - 69.5 GB</span>
                 <li class="product-item"><span class="product-name">17 hari 25GB</span><span class="product-price">Rp 24.000</span></li>
                 <li class="product-item"><span class="product-name">19 hari 25GB</span><span class="product-price">Rp 26.000</span></li>
             </ul>
-            <h3 class="product-category">
-                Bekasan/harian XL (39GB A4) Belum ada stock❌<br>
-                Area 1 = 1.5GB<br>
-                Area 2 = 4.5GB<br>
-                Area 3 = 15GB<br>
-                Area 4 = 39GB
+            <h3 class="product-category"><i class="fa-solid fa-xmark"></i> Bekasan/harian XL (39GB A4) <span style="color:#ffd700;font-size:.85em;">Belum ada stock❌</span>
+                <small style="font-weight:400;font-size:.8em;color:#ffd700;">Area 1=1.5GB | Area 2=4.5GB | Area 3=15GB | Area 4=39GB</small>
             </h3>
             <ul>
                 <li class="product-item"><span class="product-name">3 hari 39GB</span><span class="product-price">Rp 11.000</span></li>
@@ -400,12 +543,8 @@ AREA 4 = 67.5 - 69.5 GB</span>
                 <li class="product-item"><span class="product-name">17 hari 39GB</span><span class="product-price">Rp 26.000</span></li>
                 <li class="product-item"><span class="product-name">19 hari 39GB</span><span class="product-price">Rp 28.000</span></li>
             </ul>
-            <h3 class="product-category">
-                Bekasan/harian XXL (65GB A4) Stock jarang ada paling 3,5,7,9,11 hari aja<br>
-                AREA 1 = 7.5 GB<br>
-                AREA 2 = 12 GB<br>
-                AREA 3 = 25 GB<br>
-                AREA 4 = 65 GB
+            <h3 class="product-category"><i class="fa-solid fa-layer-group"></i> Bekasan/harian XXL (65GB A4) <span style="color:#ffd700;font-size:.85em;">Stock jarang (3,5,7,9,11 hari aja)</span>
+                <small style="font-weight:400;font-size:.8em;color:#ffd700;">Area 1=7.5GB | Area 2=12GB | Area 3=25GB | Area 4=65GB</small>
             </h3>
             <ul>
                 <li class="product-item"><span class="product-name">3 hari 65GB</span><span class="product-price">Rp 9.000</span></li>
@@ -421,7 +560,7 @@ AREA 4 = 67.5 - 69.5 GB</span>
         </main>
         <!-- Section Pembayaran -->
         <section class="pembayaran-section">
-            <h2>Pembayaran</h2>
+            <h2><i class="fa-solid fa-money-bill-wave"></i> Pembayaran</h2>
             <div class="pembayaran-list">
                 <div><span>Seabank</span>: 901229356584</div>
                 <div><span>Dana</span>: 089667881288</div>
@@ -436,11 +575,6 @@ AREA 4 = 67.5 - 69.5 GB</span>
             <br>
             <img class="qris-img" src="https://imgtolinkx.com/i/CBrqVNuT" alt="QRIS ALL PAYMENT">
         </section>
-        <footer class="footer-cta">
-            <a href="http://wa.me/6289667881288?text=order" class="whatsapp-link" target="_blank">
-                <span class="wa-ico">💬</span> HUBUNGI ADMIN
-            </a>
-        </footer>
     </div>
 </body>
-                    </html>
+    </html>
